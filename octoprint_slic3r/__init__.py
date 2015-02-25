@@ -103,7 +103,7 @@ class Slic3rPlugin(octoprint.plugin.SlicerPlugin,
 			from octoprint.server.api import valid_boolean_trues
 			profile_allow_overwrite = flask.request.values["allowOverwrite"] in valid_boolean_trues
 
-		self._slicing_manager.save_profile("slic3r",
+                        self._slicing_manager.save_profile("slic3r",
 		                                   profile_name,
 		                                   profile_dict,
 		                                   allow_overwrite=profile_allow_overwrite,

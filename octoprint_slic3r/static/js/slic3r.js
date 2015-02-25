@@ -153,7 +153,7 @@ $(function() {
         };
 
         self.showImportProfileDialog = function() {
-            $("#settings_plugin_slic3r_import").modal("show");
+			$("#settings_plugin_slic3r_import").modal("show");
         };
 
         self.requestData = function() {
@@ -187,5 +187,9 @@ $(function() {
     }
 
     // view model class, parameters for constructor, container to bind to
-    ADDITIONAL_VIEWMODELS.push([Slic3rViewModel, ["loginStateViewModel", "settingsViewModel", "slicingViewModel"], document.getElementById("settings_plugin_slic3r")]);
+    OCTOPRINT_VIEWMODELS.push([
+		Slic3rViewModel,
+		["loginStateViewModel", "settingsViewModel", "slicingViewModel"],
+		"#settings_plugin_octoprint_slic3r"
+	]);
 });
