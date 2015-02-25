@@ -144,16 +144,25 @@ class Slic3rPlugin(octoprint.plugin.SlicerPlugin,
 
 	def get_settings_defaults(self):
 		return dict(
+                        derp="herp",
 			slic3r_engine=None,
 			default_profile=None,
 			debug_logging=False
 		)
 
+        def get_template_configs(self):
+                return [
+                        dict(type="settings", custom_bindings=True)
+                ]
+
 	##~~ SlicerPlugin API
 
 	def is_slicer_configured(self):
 		slic3r = self._settings.get(["slic3r_engine"])
-		return slic3r is not None and os.path.exists(slic3r)
+                if slic3r is not None and os.path.exists(slic3r):
+                        return True
+                else:
+                        self._logger.info("Path to Slic3r has not been configured yet or does not exist (currently set to %r), Slic3r will not be selectable for slicing" % slic3r)
 
 	def get_slicer_properties(self):
 		return dict(

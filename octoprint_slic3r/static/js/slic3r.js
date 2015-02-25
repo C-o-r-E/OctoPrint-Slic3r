@@ -187,5 +187,5 @@ $(function() {
     }
 
     // view model class, parameters for constructor, container to bind to
-    ADDITIONAL_VIEWMODELS.push([Slic3rViewModel, ["loginStateViewModel", "settingsViewModel", "slicingViewModel"], document.getElementById("settings_plugin_slic3r_dialog")]);
+    ADDITIONAL_VIEWMODELS.push([Slic3rViewModel, ["loginStateViewModel", "settingsViewModel", "slicingViewModel"], document.getElementById("settings_plugin_slic3r")]);
 });
